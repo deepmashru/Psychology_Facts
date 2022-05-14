@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "41722512885",
+    "firebase_url": "https://psycologyfacts-b79f2.firebaseio.com",
+    "project_id": "psycologyfacts-b79f2",
+    "storage_bucket": "psycologyfacts-b79f2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:41722512885:android:02ec61310e44180d2bccbc",
+        "android_client_info": {
+          "package_name": "com.deeppsy.psychologyfacts"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "41722512885-nbfeer7ng6hm4qnearboc8h6emn5apdi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAiVn7l3DqWD35F5zEiun-5_qEOUUY0wmY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "41722512885-nbfeer7ng6hm4qnearboc8h6emn5apdi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:background="@color/backColor"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+        />
+    <RelativeLayout
+        android:id="@+id/rlayout1"
+        android:background="@color/backColor"
+        android:paddingTop="20.0dip"
+        android:paddingBottom="20.0dip"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        >
+        <ImageView
+            android:id="@+id/switch1"
+            android:layout_width="30.0dip"
+            android:layout_height="30.0dip"
+            android:src="@drawable/ic_dark_mode"
+            android:layout_marginStart="10.0dip"
+            />
+        <TextView
+            android:textSize="20.0sp"
+            android:textColor="@color/maincolor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dark"
+            android:fontFamily="sans-serif-light"
+            android:layout_marginStart="20.0dip"
+            android:layout_toEndOf="@id/switch1"
+            />
+        <Switch
+            android:id="@+id/nightButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10.0dip"
+            android:layout_alignParentEnd="true"
+            />
+    </RelativeLayout>
+    <ListView android:orientation="vertical"
+        android:id="@+id/list"
+        android:background="@android:color/white"
+        android:scrollbars="none"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:listSelector="@android:color/transparent"
+        android:layout_below="@id/rlayout1"
+        />
+</RelativeLayout>

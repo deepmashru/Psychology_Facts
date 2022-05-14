@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="aboutBackColor">#ff121212</color>
+    <color name="backColor">#ff121212</color>
+    <color name="bottomNavColor">#ff121212</color>
+    <color name="bottomNavTextColor">#ff3c8cef</color>
+    <color name="detailActColor">#ff424242</color>
+    <color name="drawerLineColor">#ff2f2f2f</color>
+    <color name="maincolor">#ffe1e1e1</color>
+    <color name="toolBarColor">#ff1f1f1f</color>
+    <color name="detailTextColor">#F3EFEF</color>
+    <color name="test">#0B0A0A</color>
+    <color name="viewfull">#ff121212</color>
+</resources>

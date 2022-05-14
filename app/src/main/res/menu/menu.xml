@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <group
+        android:id="@+id/main_menu_group"
+        >
+        <item
+            android:icon="@drawable/ic_search_black_24dp"
+            android:id="@+id/search"
+            android:title="@string/sv"
+            app:actionViewClass="androidx.appcompat.widget.SearchView"
+            app:showAsAction="collapseActionView|ifRoom"
+            />
+    </group>
+    <item
+        android:icon="@drawable/ic_settings_black_24dp"
+        android:id="@+id/rate1"
+        android:title="Rate Us"
+        app:showAsAction="never"
+        />
+    <item
+        android:icon="@drawable/ic_settings_black_24dp"
+        android:id="@+id/moreapps1"
+        android:title="More Apps"
+        app:showAsAction="never"
+        />
+    <item
+        android:icon="@drawable/ic_settings_black_24dp"
+        android:id="@+id/setiing"
+        android:title="Settings"
+        app:showAsAction="never"
+        />
+</menu>

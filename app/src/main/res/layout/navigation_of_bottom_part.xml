@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:background="@color/backColor"
+    android:layout_width="fill_parent"
+    android:layout_height="80.0dip"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15.0dip"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="15.0dip">
+        <ImageView android:layout_width="30.0dip"
+            android:layout_height="30.0dip"
+            android:src="@drawable/extra_vector"
+            android:contentDescription="@string/app_name" />
+        <TextView
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textSize="18.0sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:layout_marginStart="10.0dip" />
+    </LinearLayout>
+    <View
+        android:background="@color/drawerLineColor"
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dip"
+        android:layout_alignParentBottom="true" />
+</RelativeLayout>

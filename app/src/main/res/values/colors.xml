@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="aboutBackColor">#ffdfdfdf</color>
+    <color name="backColor">@android:color/white</color>
+    <color name="bottomNavColor">#fffafafa</color>
+    <color name="bottomNavTextColor">@color/colorPrimary</color>
+    <color name="colorAccent">#ff3c8cef</color>
+    <color name="colorPrimary">#ff3c8cef</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="abf">#ff012b73</color>
+    <color name="axy">#ff000000</color>
+    <color name="gggg">#ff2b3d4d</color>
+    <color name="design_default_color_background">#ffffffff</color>
+    <color name="design_default_color_error">#ffb00020</color>
+    <color name="design_default_color_on_primary">#ffffffff</color>
+    <color name="design_default_color_on_secondary">#ff000000</color>
+    <color name="detailActColor">#ffffff</color>
+    <color name="detailTextColor">#090808</color>
+    <color name="drawerLineColor">#ffc0c0c0</color>
+    <color name="ic_launcher_background">#ff3c8cef</color>
+    <color name="settingColor">#ffb6b6b6</color>
+    <color name="textColor">#ffe1e1e1</color>
+    <color name="maincolor">#ff2b3d4d</color>
+    <color name="toolBarColor">@android:color/white</color>
+    <color name="viewpagerToolBarColor">#ff121212</color>
+    <color name="viewpagerToolBarTextColor">@android:color/white</color>
+    <color name="test">#F4F0F0</color>
+    <color name="viewfull">#3c8cef</color>
+</resources>
