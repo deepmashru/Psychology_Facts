@@ -1,13 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--this is created for only factnodivas-->
-<androidx.appcompat.widget.Toolbar
-    android:theme="@style/ToolBarStyleNews"
+<?xml version="1.0" encoding="utf-8"?><!--this is created for only factnodivas-->
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/toolbarInner"
-    android:background="@android:color/transparent"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
     android:elevation="0.0dip"
-    app:popupTheme="@style/Theme.AppCompat.DayNight"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    />
+    android:theme="@style/ToolBarStyleNews"
+    app:popupTheme="@style/Theme.AppCompat.DayNight" />

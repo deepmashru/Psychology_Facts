@@ -17,12 +17,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-/*
-import com.facebook.ads.AudienceNetworkAds;
-import com.facebook.ads.InterstitialAd;
-*/
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -34,6 +32,7 @@ public class FactOfTheDayActivity extends AppCompatActivity {
     ArrayList<FavData> mFavData;
 
     int position;
+
     private void loadData() {
         SharedPreferences sharedPreferences = getSharedPreferences(DetailAdapterForAllFacts.SHARED_FAV, 0);
 
@@ -51,15 +50,16 @@ public class FactOfTheDayActivity extends AppCompatActivity {
         editor.putString(DetailAdapterForAllFacts.FAV_DATA, str);
         editor.apply();
     }
+
     protected void onCreate(Bundle paramBundle) {
         boolean z = false;
         super.onCreate(paramBundle);
         setContentView(R.layout.activity_fact_of_the_day);
         getWindow().setStatusBarColor(getColor(R.color.colorPrimary));
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Fact of Day");
         setSupportActionBar(toolbar);
-        ((ActionBar) Objects.requireNonNull(getSupportActionBar())).setDisplayShowHomeEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         ActionBar actionBar = getSupportActionBar();
         boolean bool2 = false;
@@ -420,15 +420,15 @@ public class FactOfTheDayActivity extends AppCompatActivity {
         this.list.add(new FactData("Females are better at multitasking than males according to studies. For deeppsy, Household things, Cooking, Cleaning etc.\n"));
         this.list.add(new FactData("Females deal with stress by joining or socializing with others, whereas males they love to fly away or get into fights with others.\n"));
         loadData();
-        ((TextView) findViewById(R.id.viewpagertext1)).setText(((FactData) this.list.get(this.position)).getTitle());
-        ImageView imageView1 = (ImageView) findViewById(R.id.share_horizontal);
-        ImageView imageView2 = (ImageView) findViewById(R.id.copy_horizontal);
-        final ImageView imageView3 = (ImageView) findViewById(R.id.save);
+        ((TextView) findViewById(R.id.viewpagertext1)).setText(this.list.get(this.position).getTitle());
+        ImageView imageView1 = findViewById(R.id.share_horizontal);
+        ImageView imageView2 = findViewById(R.id.copy_horizontal);
+        final ImageView imageView3 = findViewById(R.id.save);
         int i = 0;
         while (true) {
             if (i >= this.mFavData.size()) {
                 break;
-            } else if (((FactData) this.list.get(this.position)).getTitle().equals(((FavData) this.mFavData.get(i)).getTitle())) {
+            } else if (this.list.get(this.position).getTitle().equals(this.mFavData.get(i).getTitle())) {
                 z = true;
                 break;
             } else {
@@ -445,19 +445,18 @@ public class FactOfTheDayActivity extends AppCompatActivity {
                 Toast.makeText(FactOfTheDayActivity.this.getApplicationContext(), "Sharing...", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent("android.intent.action.SEND");
                 intent.setType("text/plain");
-                StringBuilder stringBuilder = new StringBuilder();
-                stringBuilder.append(((FactData) FactOfTheDayActivity.this.list.get(FactOfTheDayActivity.this.position)).getTitle());
-                stringBuilder.append("\n\nFor More Download the PsychologyFacts App now:");
-                stringBuilder.append("\n");
-                stringBuilder.append("https://play.google.com/store/apps/details?id=com.example.psychologyfacts");
-                intent.putExtra("android.intent.extra.TEXT", stringBuilder.toString());
+                String stringBuilder = FactOfTheDayActivity.this.list.get(FactOfTheDayActivity.this.position).getTitle() +
+                        "\n\nFor More Download the PsychologyFacts App now:" +
+                        "\n" +
+                        "https://play.google.com/store/apps/details?id=com.example.psychologyfacts";
+                intent.putExtra("android.intent.extra.TEXT", stringBuilder);
                 intent.putExtra("android.intent.extra.SUBJECT", "hello");
                 FactOfTheDayActivity.this.startActivity(intent);
             }
         });
         imageView2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View param1View) {
-                ((ClipboardManager) FactOfTheDayActivity.this.getSystemService(Context.CLIPBOARD_SERVICE)).setPrimaryClip(ClipData.newPlainText("CopyText", ((FactData) FactOfTheDayActivity.this.list.get(FactOfTheDayActivity.this.position)).getTitle()));
+                ((ClipboardManager) FactOfTheDayActivity.this.getSystemService(Context.CLIPBOARD_SERVICE)).setPrimaryClip(ClipData.newPlainText("CopyText", FactOfTheDayActivity.this.list.get(FactOfTheDayActivity.this.position).getTitle()));
                 Toast.makeText(FactOfTheDayActivity.this.getApplicationContext(), "Copied to clipboard.", Toast.LENGTH_LONG).show();
             }
         });
@@ -468,7 +467,7 @@ public class FactOfTheDayActivity extends AppCompatActivity {
                     int i = FactOfTheDayActivity.this.mFavData.size();
                     byte b1 = 1;
                     if (b < i) {
-                        if (((FactData) FactOfTheDayActivity.this.list.get(FactOfTheDayActivity.this.position)).getTitle().equals(((FavData) FactOfTheDayActivity.this.mFavData.get(b)).getTitle())) {
+                        if (FactOfTheDayActivity.this.list.get(FactOfTheDayActivity.this.position).getTitle().equals(FactOfTheDayActivity.this.mFavData.get(b).getTitle())) {
                             Toast.makeText(FactOfTheDayActivity.this.getApplicationContext(), "Removed from bookmark", Toast.LENGTH_SHORT).show();
                             FactOfTheDayActivity.this.mFavData.remove(b);
                             FactOfTheDayActivity.this.saveData();
@@ -484,7 +483,7 @@ public class FactOfTheDayActivity extends AppCompatActivity {
                 }
                 if (b == 0) {
                     Toast.makeText(FactOfTheDayActivity.this.getApplicationContext(), "Saved to bookmark", Toast.LENGTH_LONG).show();
-                    FactOfTheDayActivity.this.mFavData.add(new FavData(((FactData) FactOfTheDayActivity.this.list.get(FactOfTheDayActivity.this.position)).getTitle(), ((FactData) FactOfTheDayActivity.this.list.get(FactOfTheDayActivity.this.position)).getTitle(), "Fact of the day"));
+                    FactOfTheDayActivity.this.mFavData.add(new FavData(FactOfTheDayActivity.this.list.get(FactOfTheDayActivity.this.position).getTitle(), FactOfTheDayActivity.this.list.get(FactOfTheDayActivity.this.position).getTitle(), "Fact of the day"));
                     imageView3.setBackgroundResource(R.drawable.ic_bookmark_white_24dp);
                     FactOfTheDayActivity.this.saveData();
                 }
@@ -500,7 +499,7 @@ public class FactOfTheDayActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId()==android.R.id.home){
+        if (item.getItemId() == android.R.id.home) {
             finish();
             onBackPressed();
         }

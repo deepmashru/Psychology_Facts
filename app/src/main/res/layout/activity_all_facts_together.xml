@@ -1,33 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    android:background="@color/backColor"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
+    android:background="@color/backColor">
+
     <include
         android:id="@+id/toolbar"
-        layout="@layout/toolbar"
-        />
+        layout="@layout/toolbar" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv"
-        android:paddingTop="20.0dip"
-        android:paddingBottom="20.0dip"
-        android:clipToPadding="false"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/toolbar"
+        android:clipToPadding="false"
         android:paddingStart="15.0dip"
+        android:paddingTop="20.0dip"
         android:paddingEnd="15.0dip"
-        />
+        android:paddingBottom="20.0dip" />
+
     <LinearLayout
         android:id="@+id/banner_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        />
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </RelativeLayout>

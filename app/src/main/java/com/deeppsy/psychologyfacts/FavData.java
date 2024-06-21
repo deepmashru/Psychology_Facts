@@ -13,15 +13,27 @@ public class FavData {
         this.factTitle = String3;
     }
 
-    public String getFactTitle() { return this.factTitle; }
+    public String getFactTitle() {
+        return this.factTitle;
+    }
 
-    public String getId() { return this.id; }
+    public void setFactTitle(String paramString) {
+        this.factTitle = paramString;
+    }
 
-    public String getTitle() { return this.title; }
+    public String getId() {
+        return this.id;
+    }
 
-    public void setFactTitle(String paramString) { this.factTitle = paramString; }
+    public void setId(String paramString) {
+        this.id = paramString;
+    }
 
-    public void setId(String paramString) { this.id = paramString; }
+    public String getTitle() {
+        return this.title;
+    }
 
-    public void setTitle(String paramString) { this.title = paramString; }
+    public void setTitle(String paramString) {
+        this.title = paramString;
+    }
 }

@@ -1,26 +1,19 @@
 package com.deeppsy.psychologyfacts;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.nfc.Tag;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.LinearLayout;
-import android.widget.Toast;
+
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-/*import com.facebook.ads.Ad;
-import com.facebook.ads.AdError;
-import com.facebook.ads.AdSize;
-import com.facebook.ads.AdView;
-import com.facebook.ads.AudienceNetworkAds;
-import com.facebook.ads.InterstitialAd;
-import com.facebook.ads.InterstitialAdExtendedListener;*/
+
 import com.google.gson.Gson;
+
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -35,7 +28,7 @@ public class All_facts_together extends AppCompatActivity {
 
     DetailAdapterForAllFacts detailAdapterForAllFacts;
 
-  //  private InterstitialAd interstitialAd;
+    //  private InterstitialAd interstitialAd;
 
     //private AdView adView;
 
@@ -48,7 +41,7 @@ public class All_facts_together extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-       // int i=b;
+        // int i=b;
        /* if (i==3 || i==6 || i==8 || i==12 || i==16 || i==20){
             if (interstitialAd.isAdLoaded()) {
                 interstitialAd.show();//ads
@@ -57,13 +50,13 @@ public class All_facts_together extends AppCompatActivity {
                 return;
             }
             b++;*/
-            super.onBackPressed();
-            return;
-       /* }if (i>20)
+        super.onBackPressed();
+        /* }if (i>20)
             b=0;
         b++;*/
         //super.onBackPressed();
     }
+
     @Override
     protected void onDestroy() {
         /*if (adView != null) {
@@ -75,16 +68,16 @@ public class All_facts_together extends AppCompatActivity {
     protected void onCreate(Bundle paramBundle) {
         super.onCreate(paramBundle);
         setContentView(R.layout.activity_all_facts_together);
-      //  AudienceNetworkAds.initialize(this);
-        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+        //  AudienceNetworkAds.initialize(this);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setElevation(5.0F);
         toolbar.setBackgroundColor(getColor(R.color.toolBarColor));
         toolbar.setTitleTextColor(getColor(R.color.maincolor));
         setSupportActionBar(toolbar);
-        ((ActionBar)Objects.requireNonNull(getSupportActionBar())).setDisplayShowHomeEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-       // interstitialAd = new InterstitialAd(this,"301374014310161_309728710141358");//old:-301374014310161_301915027589393
-      //  this.interstitialAd.loadAd();
+        // interstitialAd = new InterstitialAd(this,"301374014310161_309728710141358");//old:-301374014310161_301915027589393
+        //  this.interstitialAd.loadAd();
        /* if (b == 1) {
             adView = new AdView(this, "301374014310161_307850813662481", AdSize.BANNER_HEIGHT_50);
             LinearLayout adContainer = (LinearLayout) findViewById(R.id.banner_container);
@@ -92,7 +85,7 @@ public class All_facts_together extends AppCompatActivity {
             adView.loadAd();
             b++;
         }*/
-        RecyclerView recyclerView = (RecyclerView)findViewById(R.id.rv);
+        RecyclerView recyclerView = findViewById(R.id.rv);
         list = new ArrayList();
         String str = getIntent().getStringExtra("position");
         position = str;
@@ -145,8 +138,7 @@ public class All_facts_together extends AppCompatActivity {
             list.add(new FactData("Anger is a social emotion. You always have a target that your anger is directed against (even if that target is yourself). Feelings of pain, combined with anger-triggering thoughts motivate you to take action, face threats and defend yourself by striking out against the target you think is causing you pain."));
             list.add(new FactData("Anger is more than just an emotion; it has physiological effects that occur alongside it. These range from racing heartbeats, sweating, and an increase in blood pressure."));
             list.add(new FactData("Expressing anger is helpful, it releases tension and helps people to not have grudges against anyone because they express themselves every time, they get angry."));
-        }
-        else if (position.equals("Animals")) {
+        } else if (position.equals("Animals")) {
             list.add(new FactData("Elephants can smell water from a dozen miles away."));
             list.add(new FactData("Cats can change their meow depending on the situation, such as when they're demanding to be fed."));
             list.add(new FactData("Butterflies can taste with their feet."));
@@ -196,8 +188,7 @@ public class All_facts_together extends AppCompatActivity {
             list.add(new FactData("Cats are good for our health. People who own cats have a lower risk of cardio-vascular disease than non-cat owners."));
             list.add(new FactData("Your dog’s sense of smell is 1,000 to 10 million times better than yours."));
             list.add(new FactData("When dog look at their human companions in the eye, it may actually be a look of love, rather than simple begging. "));
-        }
-        else if (position.equals("Attraction")) {
+        } else if (position.equals("Attraction")) {
             list.add(new FactData("You can sense when someone's staring at you even when you are not looking directly at them. "));
             list.add(new FactData("People may also be attracted to people who are different from themselves with the difference acting as a complimentary support for areas in which each may be licking. "));
             list.add(new FactData("Researches show that a potential date is made more attractive by adrenaline. "));
@@ -227,8 +218,7 @@ public class All_facts_together extends AppCompatActivity {
             list.add(new FactData("Bright colours can anyone more attractive because they influence a primitive part of the brain."));
             list.add(new FactData("Study shows that we are attracted to people who looks like our parents, like if your mom has blue eyes then chances of you attracted by a girl who had blue eyes. "));
             list.add(new FactData("Physical attractiveness is very important, if you are a girl and want to attract more guys, as best to focus improving highlighting your physical attributes."));
-        }
-        else if (position.equals("Biological Facts")) {
+        } else if (position.equals("Biological Facts")) {
             list.add(new FactData("Eye contact can tell you a lot about you."));
             list.add(new FactData("Gratitude can boost dopamine and serotonin, just like antidepressants."));
             list.add(new FactData("A foetus in the womb hears mostly low-frequency sounds, which may explain humanity's love of bass in music."));
@@ -293,8 +283,7 @@ public class All_facts_together extends AppCompatActivity {
             list.add(new FactData("Our bone marrow produces 260 billion red blood cells (RBCs) and 135 billion white blood cells (WBCs) per day."));
             list.add(new FactData("The same skin cells that make up a human vagina are the same type of cells that are in a human mouth."));
             list.add(new FactData("You can't hum while holding or pressing your both side of nose tightly. If you will try this you will feel unconscious in short period of time."));
-        }
-        else if (position.equals("Body Language")) {
+        } else if (position.equals("Body Language")) {
             list.add(new FactData("Tell people your deepest secrets while looking in their eyes. They will feel an instant attraction. (The Science of Attraction)"));
             list.add(new FactData("Moving your legs or hands constantly while talking means you're pretty confused and uncomfortable."));
             list.add(new FactData("When you do public speaking or giving a presentation use your arms to guide, don’t ever keep it in your pockets or hold in your back."));
@@ -339,8 +328,7 @@ public class All_facts_together extends AppCompatActivity {
             list.add(new FactData("If person is biting the arms of their glasses, that indicates that They are definitely worried about something at a subconscious level."));
             list.add(new FactData("If you speak and encourage yourself in-front of mirror, you will be mentally strong."));
             list.add(new FactData("When you do public speaking or giving a presentation use your arms to guide, don’t ever keep it in your pockets or hold it in your back."));
-        }
-        else if (position.equals("Children")) {
+        } else if (position.equals("Children")) {
             list.add(new FactData("The children of strict parents tend to be sneakier."));
             list.add(new FactData("Getting in Music rhythms helps children grasp fractions."));
             list.add(new FactData("A 3-year old Boy's voice is louder than 200 adults in a crowded restaurant."));
@@ -376,8 +364,7 @@ public class All_facts_together extends AppCompatActivity {
             list.add(new FactData("Babies are born with the ability to taste sweet, bitter, and sour; however, they can’t taste salt until they’re 4 months old."));
             list.add(new FactData("In ancient Greece, children of wealthy families were dipped in olive oil at birth to keep them hairless throughout their lives."));
             list.add(new FactData("Research found that kids aged 4-6 perform better during boring tasks when dressed as Batman."));
-        }
-        else if (position.equals("Colour")) {
+        } else if (position.equals("Colour")) {
             list.add(new FactData("Shades of blue are supposed to be calming, while a colour like bright orange encourages happiness and creativity."));
             list.add(new FactData("Colours like Red, Orange and Yellow makes you hungry."));
             list.add(new FactData("Different colours can trigger different emotional responses, so people should keep that in mind when picking a paint colour for their room."));
@@ -404,8 +391,7 @@ public class All_facts_together extends AppCompatActivity {
             list.add(new FactData("The colour of royalty, Purple connotes luxury, wealth, and sophistication. It is also feminine and romantic. However, because it is rare in nature, purple can appear artificial."));
             list.add(new FactData("Brides wear white to symbolize innocence and purity. However, white shows dirt and is therefore more difficult to keep clean than other colours. Doctors and nurses wear white to imply sterility."));
             list.add(new FactData("62-90% of the first impression is due to colour. More specifically, wearing hints of red (for women) or blue (for men) on a first date could lead to stronger feelings and a definite second date, while those who wear black for a job interview are more likely to be hired."));
-        }
-        else if (position.equals("Dating")) {
+        } else if (position.equals("Dating")) {
             list.add(new FactData("Nearly 40% of men do not feel confident meeting a woman for the first time. "));
             list.add(new FactData("In a survey conducted by MSNBC.com and Elle magazine, more than 31% of men said they dumped an overweight partner compared to 12% of women."));
             list.add(new FactData(" 92% of single parents would rather date other single parents."));
@@ -437,8 +423,7 @@ public class All_facts_together extends AppCompatActivity {
             list.add(new FactData("The best time to call after meeting someone is within two to four days, and no more than four to five days."));
             list.add(new FactData("Four common date blunders include showing up late, talking about yourself too much, revealing too much about your ex, and an obvious over - eagerness. "));
             list.add(new FactData("Talking to a bartender makes a woman seem more friendly and makes it easier for a guy to jump in on her conversation. "));
-        }
-        else if (position.equals("Depression")) {
+        } else if (position.equals("Depression")) {
             list.add(new FactData("People who laugh even on silly jokes are the most depressed persons."));
             list.add(new FactData("Over thinking is a special form of fear. This fear becomes worse when adding anticipation, memory, imagination, and emotion together."));
             list.add(new FactData("Eating chocolates reduces stress."));
@@ -488,8 +473,7 @@ public class All_facts_together extends AppCompatActivity {
             list.add(new FactData("Day dreaming is good for you brain. it makes you more creative but, in some cases, it can cause depression."));
             list.add(new FactData("Emotional pain is remembering more than physical pain and has more effect on your behaviour that causes the depression in most of cases."));
             list.add(new FactData("Depression a result of the malfunction of neurotransmitters between neuron's synapses. Serotonin, dopamine, GABA etc."));
-        }
-        else if (position.equals("Dream")) {
+        } else if (position.equals("Dream")) {
             list.add(new FactData("'being chased' being chased is symbolic of heavy life fears or problems. Step up and work on facing them now."));
             list.add(new FactData("If u being naked in your dream that means you scared or feel insecure."));
             list.add(new FactData("Men get erection in REM sleep."));
@@ -520,8 +504,7 @@ public class All_facts_together extends AppCompatActivity {
             list.add(new FactData("If you are pregnant and giving birth, it might not be as simple as that you're going to have a baby, but instead, that you are in the process of creating a new idea."));
             list.add(new FactData("We cannot read in dream because dreaming and reading are function of-different side of the brain."));
             list.add(new FactData("If you see dirty water in your dream, it is believed that you might have a health issue that your body is trying to communicate to you."));
-        }
-        else if (position.equals("Extroverts")) {
+        } else if (position.equals("Extroverts")) {
             list.add(new FactData("Many extroverts find that being in a quiet room with a book is not an ideal situation for them although they also need their quiet moments."));
             list.add(new FactData("Extroverts are good presenters; they can present any things in a positive way or a negative way also."));
             list.add(new FactData("Extroverts are also more likely to engage in risk-taking behaviours, including risky health behaviours."));
@@ -551,8 +534,7 @@ public class All_facts_together extends AppCompatActivity {
             list.add(new FactData("Extroverts are always like to do some tasks, instead of sitting ideal."));
             list.add(new FactData("Extroverts need to talk their problems through, asking others to help them look at all angles of a situation."));
             list.add(new FactData("The extrovert boys are very friendly. They are also very talkative and like to make new friends and like the social gathering."));
-        }
-        else if (position.equals("Fear Of Phobias")) {
+        } else if (position.equals("Fear Of Phobias")) {
             list.add(new FactData("Xanthophobia is the fear of the colour yellow."));
             list.add(new FactData("The truth is never as painful as discovering a lie."));
             list.add(new FactData("Inability to understand sarcasm can be an early warning sign of a brain disease!"));
@@ -592,8 +574,7 @@ public class All_facts_together extends AppCompatActivity {
             list.add(new FactData("Acrophobia fear can lead to anxiety attacks and avoidance of high places. People who suffer from this phobia may go to great lengths to avoid high places such as bridges, towers, or tall buildings."));
             list.add(new FactData("Children with a specific phobia may express their anxiety by crying, clinging to a parent, or throwing a tantrum."));
             list.add(new FactData("Anatidaephobia is the weird fear that somewhere, somehow, a duck is watching you."));
-        }
-        else if (position.equals("Female")) {
+        } else if (position.equals("Female")) {
             list.add(new FactData("Women tend to remember more of those who ignore them, than those who constantly talk to them."));
             list.add(new FactData("In every girl’s life, there’s a boy she’ll never forget. In every boy’s life, there’s a girl he can never get."));
             list.add(new FactData("Women have twice as many pain receptors on their bodies than men, but they have a much higher pain tolerance."));
@@ -703,8 +684,7 @@ public class All_facts_together extends AppCompatActivity {
             list.add(new FactData("Women often find themselves more attracted to someone with the ability to make them laugh. Laughter strengthens relationships."));
             list.add(new FactData("Women tend to fall in love with those who talk naughty"));
             list.add(new FactData("While women have smaller brains than men, women use their brains more efficiently."));
-        }
-        else if (position.equals("Friendship")) {
+        } else if (position.equals("Friendship")) {
             list.add(new FactData("Friendship between two women is not as strong as friendship between two men."));
             list.add(new FactData("Apologizing doesn't always mean you're wrong and the other person is right. It means you value your relationship more than your ego."));
             list.add(new FactData("The average person has 3 to 5 best friends and usually hates one in their group."));
@@ -748,8 +728,7 @@ public class All_facts_together extends AppCompatActivity {
             list.add(new FactData("Treating everyone like they are a good friend may make your path through life a little easier. Being kind, providing favours, and helping others can make you feel better about yourself and life."));
             list.add(new FactData("Shared interests and proximity—real or virtual—are the fastest paths to finding friends, and if that intersection of two lives begins online, it can yet develop into its own type of relationship over time."));
             list.add(new FactData("We need allies. Scientists aren't totally sure why we have friends. One theory, through is that we are unconsciously building a support system in preparation of future conflicts. "));
-        }
-        else if (position.equals("Happiness")) {
+        } else if (position.equals("Happiness")) {
             list.add(new FactData("Smile relieves stress Our body release endomorphism when we smile, even when we force it."));
             list.add(new FactData("Your genetics and family upbringing account for only half of your happiness levels."));
             list.add(new FactData("Money buys happiness. Those who can afford to have their basic material needs taken care of are happier than those who cannot."));
@@ -802,8 +781,7 @@ public class All_facts_together extends AppCompatActivity {
             list.add(new FactData("We can cry out of happiness but we can never smile out to of sadness."));
             list.add(new FactData("Minimum 20 minutes of exercise, three days each week will increase your happiness by 10 to 20 percent after six months."));
             list.add(new FactData("Dancing & Other Art forms increase happiness."));
-        }
-        else if (position.equals("Health")) {
+        } else if (position.equals("Health")) {
             list.add(new FactData("Sitting and sleeping are great in moderation, but too much can increase your chances of an early death."));
             list.add(new FactData("Less than 1% of Americans ride their bike to work, while 50% of Copenhagen residents bike to work or school."));
             list.add(new FactData("The Jerusalem syndrome is a group of psychological phenomena triggered by a visit to Jerusalem, Israel."));
@@ -886,8 +864,7 @@ public class All_facts_together extends AppCompatActivity {
             list.add(new FactData("Try to achieve something small like getting up early, going for a run or even organizing your wardrobe. Then the next day do something else and in a few months’ time you will be so confident and energized that taking on the big tasks would feel no big deal."));
             list.add(new FactData("Antidepressant drugs, already known to cause sexual side effects, may also suppress the basic human emotions of love and romance and damage that make your health."));
             list.add(new FactData("On average, those who eat with one other person eat about 30 per cent more than they do when they are alone; members of a group of four eat about 40 per cent more; those in groups of seven or more eat 50 per cent more."));
-        }
-        else if (position.equals("Human Behaviours")) {
+        } else if (position.equals("Human Behaviours")) {
             list.add(new FactData("Attractive and honest appearance can easily be misleading. People tend to trust appearance more than sincerity."));
             list.add(new FactData("People with high levels of testosterone get pleasure from the anger of others."));
             list.add(new FactData("Most drivers think they are a better-than-average driver."));
@@ -997,8 +974,7 @@ public class All_facts_together extends AppCompatActivity {
             list.add(new FactData("It takes a person 66 days to form a habit."));
             list.add(new FactData("When people feel that they have no control on a particular situation, they start believing in conspiracy theories."));
             list.add(new FactData("People are so jealous of their neighbours that they don't feel satisfied and successful until they are superior than them."));
-        }
-        else if (position.equals("Human Emotions")) {
+        } else if (position.equals("Human Emotions")) {
             list.add(new FactData("We are subconsciously more attracted to people who have the same taste in music as we do."));
             list.add(new FactData("You have a favourite song? That's because you are emotionally attached to that song."));
             list.add(new FactData("Touching a teddy bear makes people feel less lonely!"));
@@ -1089,8 +1065,7 @@ public class All_facts_together extends AppCompatActivity {
             list.add(new FactData("More than 70% of all apologies are meaningless."));
             list.add(new FactData("Our brain automatically associates smiling with happiness If we force to smile, our brain will assume we are happy."));
             list.add(new FactData("If you’re emotional about something, your logical reasoning gets thrown out the window."));
-          }
-         else if (position.equals("Hunger And Food")) {
+        } else if (position.equals("Hunger And Food")) {
             list.add(new FactData("Honey is the only edible food that never goes bad."));
             list.add(new FactData("Lemons contain more sugar than strawberries."));
             list.add(new FactData("Cucumbers are 96% water."));
@@ -1150,8 +1125,7 @@ public class All_facts_together extends AppCompatActivity {
             list.add(new FactData(" Whole grains such as brown rice, whole wheat pasta and multigrain bread are rich in nutrients since they contain insoluble fiber that helps keep the bowels healthy."));
             list.add(new FactData("Drinking six to eight glasses of water a day will help you stay hydrated, though Indian summers may require you to drink a little more."));
             list.add(new FactData("Foods, like ranch dressing or coffee creamer, can contain titanium dioxide, which can also be found in paint, plastic, and sunscreen."));
-        }
-         else if (position.equals("Human Mind")) {
+        } else if (position.equals("Human Mind")) {
             list.add(new FactData("Your brain doesn't realise the difference between reality and imagination. "));
             list.add(new FactData("Hardest questions for brain 'describes yourself?!'. "));
             list.add(new FactData("When a person is sleeping, the brain works hard to keep the heart, the digestive system, the immune system etc.  functional. "));
@@ -1192,8 +1166,7 @@ public class All_facts_together extends AppCompatActivity {
             list.add(new FactData("Brain can't feel pain. It interprets pain signals sent to it, but it does not feel pain.  "));
             list.add(new FactData("Headaches are caused by a chemical reaction in your brain combined with the muscles and nerves of your neck and head."));
             list.add(new FactData("Alcohol effects your brain in ways that include blurred vision, slurred speaking, an unsteady walk, and more."));
-        }
-         else if (position.equals("Introverts")) {
+        } else if (position.equals("Introverts")) {
             list.add(new FactData("Happiness might not be a top priority for introverts. They are deep thinkers. "));
             list.add(new FactData("Introverts aren't risk - averse but they are more careful and calculate about what risks they choose to take."));
             list.add(new FactData("Introverts are more than happy to have a plan with a small group of friends, but they would much rather be at home reading or watching Netflix."));
@@ -1238,8 +1211,7 @@ public class All_facts_together extends AppCompatActivity {
             list.add(new FactData("Introverts are Highly sensitive, empathetic. Avoid conflicts most of the time. Hence can be misunderstood as weak and subservient."));
             list.add(new FactData("Introverts hate parties and other social gatherings too many people. too much bickering which drains their energy."));
             list.add(new FactData("Introverts don't like to draw attention to themselves."));
-        }
-         else if (position.equals("Jealousy")) {
+        } else if (position.equals("Jealousy")) {
             list.add(new FactData("People who are really in love tend to get jealous over small and stupid things."));
             list.add(new FactData("Jealous person constantly try to disparate your achievements, sometimes going to very cruel lengths to do so. Remember that there is no point trying to tell them otherwise because they will just go on doing so."));
             list.add(new FactData("People who are jealous often blame others around them rather than recognizing the emotion that is making them feel hurt."));
@@ -1293,8 +1265,7 @@ public class All_facts_together extends AppCompatActivity {
             list.add(new FactData("Doctors and therapists all seem to agree that the best way to overcome jealousy is to be honest with yourself and others about the emotions you are experiencing."));
             list.add(new FactData("It's so sad to know that jealousy might motivate your aunts, cousins, or even your siblings to hurt you. And when it comes from family members, the hurt is deeper."));
             list.add(new FactData("One study in particular showed no difference in amounts of jealousy between men and women. Although women get a bad reputation for being jealous, turns out men are just as bad."));
-         }
-         else if (position.equals("Laughter")) {
+        } else if (position.equals("Laughter")) {
             list.add(new FactData("When a group of people laugh, each member of the group will instinctively look at the person they feel closest to."));
             list.add(new FactData("The average person laughs around 13 times a day. Oddly enough, very few of those times are due to a joke or an intentional action. More often, we laugh at chance happenings or things that were never intended to be funny in the first place."));
             list.add(new FactData("Believe it or not, there really is a science to laughing. In fact, the science of laughing and it’s effects on the body is referred to as Gelotology."));
@@ -1355,8 +1326,7 @@ public class All_facts_together extends AppCompatActivity {
             list.add(new FactData("Laughter increases our short-term pain tolerance."));
             list.add(new FactData("Research found that women laugh 126 percent more than men in cross-gender conversations, with men preferring to be the one prompting the laughter."));
             list.add(new FactData("A small dose of humour can increase immunological functioning."));
-        }
-         else if (position.equals("Laziness")) {
+        } else if (position.equals("Laziness")) {
             list.add(new FactData("Other factors that can lead to ‘laziness’ are fear and hopelessness. Some people fear success. "));
             list.add(new FactData("Studies shows that Laziness leads to creativity and deep thought about your future."));
             list.add(new FactData("Albert Einstein, Pablo Picasso, and Isaac Newton, some of the greatest minds the world has ever seen, were all accused of being terribly lazy."));
@@ -1388,8 +1358,7 @@ public class All_facts_together extends AppCompatActivity {
             list.add(new FactData("Lazy people are very creative when it comes to organizing their work. They don’t waste time on unnecessary things and get strict to the point."));
             list.add(new FactData("Yet other people are ‘lazy’ because they understand their situation as being so hopeless that they cannot even begin to think through it, let alone do something about it."));
             list.add(new FactData("Many ‘lazy’ people are not intrinsically lazy, but are so because they have not found what \n they want to do. "));
-        }
-         else if (position.equals("Left Handed People")) {
+        } else if (position.equals("Left Handed People")) {
             list.add(new FactData("The very world 'left' comes from Anglo-Saxon word 'lyft'  meaning weak or traited. "));
             list.add(new FactData("Lefties see much better in underwater. "));
             list.add(new FactData("Did you know that more than 40%   of the top tennis player in the world are left-handed?? that's very interesting facts!! "));
@@ -1432,8 +1401,7 @@ public class All_facts_together extends AppCompatActivity {
             list.add(new FactData("There are only 5 to 12% of the world population are left handed. "));
             list.add(new FactData("Most of the intelligent people have bad hand-writing. This is because they tend to think faster which results as if letters are floating on the notebook."));
             list.add(new FactData("Lefties make especially good baseball players, tennis players, swimmers, boxers and fencers (almost 40% of the top tennis players are lefties)."));
-        }
-         else if (position.equals("Love")) {
+        } else if (position.equals("Love")) {
             list.add(new FactData("A person that truly loves you will never let you go, no matter how hard the situation is."));
             list.add(new FactData("Attachment + Caring + Intimacy = Perfect Love"));
             list.add(new FactData("Make a person fall in love with themselves and they'll fall in love with you."));
@@ -1544,8 +1512,7 @@ public class All_facts_together extends AppCompatActivity {
             list.add(new FactData("When you fall in love or you have a breakup, this is the time when you start to understand the lyrics of songs and sometimes these songs tell your life story. "));
             list.add(new FactData("Falling in love at first sight is apparently true according to psychologists. It takes only 2-4 minutes to fall for someone or to make a good impression on Someone."));
             list.add(new FactData("A morning kiss can help prevent against stress related illness- it triggers hormone that help a person deal with pressure. "));
-        }
-         else if (position.equals("Male")){
+        } else if (position.equals("Male")) {
             list.add(new FactData("If a man forgets something that's important to you it doesn't mean he doesn't love you. "));
             list.add(new FactData("Guys hate asking for help most of time, and will avoid talking any help until they feel they can't do it by themselves. "));
             list.add(new FactData("Male have more anger and aggression than girl has., especially in teenagers. "));
@@ -1601,8 +1568,7 @@ public class All_facts_together extends AppCompatActivity {
             list.add(new FactData("If males are emotionally alone, they also demand for support and love. "));
             list.add(new FactData("Guys can be true romantics if the girl they like plays hard to get the right way."));
             list.add(new FactData("Men are easy to manipulate, but all guys hate being manipulated into doing something."));
-        }
-         else if (position.equals("Music")){
+        } else if (position.equals("Music")) {
             list.add(new FactData("Due to the chemical release of the name of dopamine in the brain, we shout while listening to the song."));
             list.add(new FactData("Music causes the body to release endorphin to counteract pain."));
             list.add(new FactData("The type of music we listen, affects the way we perceive the world."));
@@ -1654,8 +1620,7 @@ public class All_facts_together extends AppCompatActivity {
             list.add(new FactData("Song lyrics have a stronger impact on the human mind when an individual experiencing sadness."));
             list.add(new FactData("People high in openness to experience were more likely to play a musical instrument and more likely to rate music as important to them."));
             list.add(new FactData("Music affects the way you perceive the world. Use it for productivity, to change your mood whilst driving, and to help you to deal with negative emotions."));
-        }
-         else if (position.equals("OCD")){
+        } else if (position.equals("OCD")) {
             list.add(new FactData("Many of us carry out daily rituals consisting of a series of tasks that we might otherwise forget. For deeppsy, checking that all the doors and windows are locked before we go to bed at night is a routine that guards against burglary. But in OCD, these rituals spiral out of control."));
             list.add(new FactData("OCD may affect men and women equally."));
             list.add(new FactData("Researchers have found that people with OCD often score very highly for particular personality traits. These include: Neuroticism, Impulsivity, Responsibility, Indecisiveness and Perfectionism."));
@@ -1687,8 +1652,7 @@ public class All_facts_together extends AppCompatActivity {
             list.add(new FactData("Perfectionism - a need to get everything to feel right during OCD personality traits."));
             list.add(new FactData("The difference between healthy and obsessive love is that with the latter, those feelings of infatuation become extreme, expanding to the point of becoming obsessions. Obsessive love and jealousy that is delusional is a symptom of mental-health problems and is a symptom that occurs in about 0.1% of adults."));
             list.add(new FactData("Cognitive Behavioural Therapy and medication are two ways of treating OCD."));
-        }
-         else if (position.equals("People")){
+        } else if (position.equals("People")) {
             list.add(new FactData("Weak people revenge. Strong people forgive. Intelligent people ignore. - Albert Einstein."));
             list.add(new FactData("Good liars are good at detecting other people’s lies"));
             list.add(new FactData("Great things happen when you distance yourself from all the negative people."));
@@ -1779,8 +1743,7 @@ public class All_facts_together extends AppCompatActivity {
             list.add(new FactData("People that smell good behave more confidently, which makes them more attractive, even if others can't smell their perfume or cologne."));
             list.add(new FactData("People tend to pay attention and believe in you more when you narrate your own experiences rather than quoting statistics."));
             list.add(new FactData("Saying 'Thank you' makes people see you as a warmer person, a study found."));
-        }
-         else if(position.equals("Personality")){
+        } else if (position.equals("Personality")) {
             list.add(new FactData("Most of the people are not aware of how they react to others and to themselves."));
             list.add(new FactData("People who swear more often are more honest than who don't, a study found. "));
             list.add(new FactData("Most people have a personality of making judgments about the way someone looks. Your facial features can give the impression of whether you want a serious relationship or not which can either attract or turn away potential partners."));
@@ -1850,8 +1813,7 @@ public class All_facts_together extends AppCompatActivity {
             list.add(new FactData("Fear of the unknown is the personality trait that underlies many anxiety disorders."));
             list.add(new FactData("Optimists report higher levels of mental and physical functioning than pessimists, research reveals."));
             list.add(new FactData("People get nicer as they get older, in contrast to the stereotype of the grumpy senior."));
-        }
-         else if (position.equals("Sixth Sense")){
+        } else if (position.equals("Sixth Sense")) {
             list.add(new FactData("Touch Sense: This has been found to be distinct from pressure, temperature, pain, and even itch sensors."));
             list.add(new FactData("Dogs recognize and identify humans first with a scent. Grizzly bears can smell food from up to 18 miles away."));
             list.add(new FactData("The sense of hearing is due to a response to mechanical stimuli; vibrations are converted into nerve impulses that the brain receives."));
@@ -1881,8 +1843,7 @@ public class All_facts_together extends AppCompatActivity {
             list.add(new FactData("Our experiences, beliefs and culture affect what we notice out of the thousands of stimuli our senses are receiving. Our brain uses information it gathers through our five senses, interprets it and perceives the world around us, creating our life experience."));
             list.add(new FactData("Temporal perception, the sense of the passage of time, and interception, sensations coming from within organs. Equilibrioception is the sense of balance, and thermoception is the ability to feel hot and cold."));
             list.add(new FactData("Science says that smells trigger memories from your childhood or from happy or bad memories."));
-        }
-         else if (position.equals("Sleep")){
+        } else if (position.equals("Sleep")) {
             list.add(new FactData("Sleep is just as important as diet and exercise."));
             list.add(new FactData("1 in 4 married couples sleep in separate beds for a better sleep experience, according to surveys."));
             list.add(new FactData("You Are Paralyzed During Your Dreams"));
@@ -1950,8 +1911,7 @@ public class All_facts_together extends AppCompatActivity {
             list.add(new FactData("A short sleep or napping for just 6 minutes can help improve your memory."));
             list.add(new FactData("If you don't move for 15 minutes, you will fall asleep."));
             list.add(new FactData("People read faster with longer lines but prefer shorter ones."));
-        }
-         else if (position.equals("Social Media Life")){
+        } else if (position.equals("Social Media Life")) {
             list.add(new FactData("Facebook primarily blue because mark Zuckerberg. The creator of Facebook, suffers from red-green 'colour blindness'."));
             list.add(new FactData("All of the social media platforms, advertisements all the time. "));
             list.add(new FactData("Facebook will pay $500 to anyone who can hack their system. "));
@@ -2002,66 +1962,64 @@ public class All_facts_together extends AppCompatActivity {
             list.add(new FactData("In a group chat look at a person's foot, it will be towards the person who he/she is interested in."));
             list.add(new FactData("Researchers are debating adding internet addiction to the list of mental disorders."));
             list.add(new FactData("Most people text faster when it's someone they like while using a social platform."));
-        }
-         else if (position.equals("Teenagers")){
-                list.add(new FactData("A man sometimes extends his waist towards a girl if he's attracted to her."));
-                list.add(new FactData("About 20% of teens are more likely to experience depression before they join college."));
-                list.add(new FactData("18 to 33-year olds are the most stressed out people on earth."));
-                list.add(new FactData("Teenagers even who have to get up early in the morning stay awake till late nights and often face a lack of sleep or the willingness to sleep."));
-                list.add(new FactData("Teenagers will always try to be more of an adult than a child: Sure, they are in the middle of that phase where it's neither here nor there, but they try their level best to show that they are mature enough to handle everything and anything."));
-                list.add(new FactData("90% of the time when someone says they have to ask you a question, you recall all the bad things you have done recently."));
-                list.add(new FactData("Teens mind doesn't build to do hard work, they want success easily and rapidly so that they can do anything."));
-                list.add(new FactData("Teenagers are dramatic, irrational and scream for seemingly no reason. They do stupid things. And they have a deep need for both greater independence and tender loving care."));
-                list.add(new FactData("Teen girls that have a negative view of themselves are 4 times more likely to take part in activities with boys that they were ended up regretting later."));
-                list.add(new FactData("Teenagers have less self - control. They are extremely impulsive."));
-                list.add(new FactData("Teenagers are not good at reading emotions as adults or even children."));
-                list.add(new FactData("7 in 10 girls believe that they are not good enough or don't measure up in some way, including their looks, performance in school and relationships with friends and family members."));
-                list.add(new FactData("Brain maturation is again influenced by environmental factors increasing their proneness to drug abuse, unprotected sex and violence."));
-                list.add(new FactData("Due to the increase in brain matter, the teen brain becomes more interconnected and gains processing power."));
-                list.add(new FactData("Teenagers can find it really tough to control their emotions: Honestly, it’s not even their fault that they have to go through this, because their emotions are everywhere thanks to our dear friends, hormones."));
-                list.add(new FactData("Teenagers find it easy to trust people: And the downside of this is that they eventually get hurt and not be able to build trust as easily as before."));
-                list.add(new FactData("They think more about themselves and consider themselves as unique. Hence, often ends up thinking nobody could understand them or think like they do."));
-                list.add(new FactData("Over 70% of Teenagers age 15 to 17 avoid normal daily activities, such as attending school, when they feel bad about their looks."));
-                list.add(new FactData("There is an 84% chance that if you’re 16 or older, you’ve met the person you’ll marry."));
-                list.add(new FactData("If a guy stands with his legs apart while talking to a girl, it means he likes her."));
-                list.add(new FactData("Many teens who sleep less than 8-9 hours suffer from irritability, mood swings and even depression."));
-                list.add(new FactData("Teenagers who do not have positive peer relations with family or friends are at a higher risk of developing substance abuse and depression."));
-                list.add(new FactData("The ability to delay gratification or not starts young. "));
-                list.add(new FactData("Life becomes more meaningful when you realize the simple fact that you'll never get the same moment twice."));
-                list.add(new FactData("If you’re in a really heated and angry situation, try to avoid the word 'you'.The word “you” is not going to help you in any manner."));
-                list.add(new FactData("Teenagers find it easy to trust people: And the downside of this is that they eventually get hurt and are not able to build trust as easily as before. But i think its a necessary evil to be let down once, and not make the same mistakes again."));
-                list.add(new FactData("Puberty is the beginning of major changes in the limbic system in teenage life, Psychologist said, referring to the part of the brain that not only helps regulate heart rate and blood sugar levels, but is also critical to the formation of memories and emotions."));
-                list.add(new FactData("The generation that invented the internet, the smartphone, and the iPad all played outside as children."));
-                list.add(new FactData("7 in 10 girls believe that they are not good enough or don’t measure up in some way, including their looks, performance in school and relationships with friends and family members."));
-                list.add(new FactData("Teenagers are ore more likely to take more risks than any other age group."));
-                list.add(new FactData("Among high school students, approximately 44% girls and 14% boys are attempting to lose weight according to survey."));
-                list.add(new FactData("Watching scary movies has lasting effects on children and teens, which may affect them well into adulthood"));
-                list.add(new FactData("Teenagers are not that good at reading emotions as adults or even children."));
-                list.add(new FactData("A study showed that the percentage of teen girls who feel good about themselves is around 29% compared to boys with a percent of 46%."));
-                list.add(new FactData("75% of teenagers with low self-esteem reported engaging in negative activities like cutting, bullying, smoking, drinking, or disordered eating. This compares to 25% of girls with high self-esteem according to survey."));
-                list.add(new FactData("Teenagers have less self-control. They are extremely impulsive."));
-                list.add(new FactData("A person can share boring experiences with just about anybody. Coffee date, been there. Movie and a dinner, done that. Skip all the conventional dates for more exciting experiences together such as skydiving or bungee jumping to create much more special memories."));
-                list.add(new FactData("Girls who have more 'guy friends' than 'girl friends' go through less depression and anxiety."));
-                list.add(new FactData("However, summer is the season that produces the most manic states. Nonetheless, this point and the former appear to be less evident depending on the latitude where people are located. So, the closer people are to the equator, the less they suffer from these types of problems."));
-                list.add(new FactData("Studies have found that being a “bad boy” is no longer perceived as “cool.”"));
-                list.add(new FactData("Positive text messages from people you care about can have a positive influence on your body and improve your mood."));
-                list.add(new FactData("Admit when you're wrong and shut up when you're right. This is the best way to drastically improve the quality of your relationships."));
-                list.add(new FactData("When a girl tells you about her problems, it does not mean that she is complaining. It means she trusts you!"));
-                list.add(new FactData("Those who use ‘Analog clock’ are more aware of the ‘time spent’ & the ‘time left’ than those who use Digital clock."));
-                list.add(new FactData("People who play video games often are much more likely to have lucid dreams than non-gamers"));
-                list.add(new FactData("Online dating and online shopping use the same psychological principle."));
-                list.add(new FactData("A girl's favourite song will tell you more about her feelings than her lips ever will."));
-                list.add(new FactData("Unexpected phone calls and texts tend to be best and can improve a person’s mood and state of mind. Guess who might make your day today."));
-                list.add(new FactData("People who are risk-takers in their youth also tend to take relatively more risks than their peers as they age, research shows."));
-                list.add(new FactData("The top wish among many teen girls is for their parents to communicate better with them. This includes frequent and more open conversations."));
-                list.add(new FactData("recent studies suggest that your teen is less lonely than you were as a kid."));
-                list.add(new FactData("Teens prefer digital world engagement more than real world engagement and dominate social platforms."));
-                list.add(new FactData("Teenagers are more likely to take more risks than any other age group."));
-                list.add(new FactData("More than 40% of boys in middle school and high school regularly exercise with the goal of increasing muscle mass."));
-                list.add(new FactData("About 20% of teens will experience depression before they reach adulthood."));
-                list.add(new FactData("Over 70% of girls age 15 to 17 avoid normal daily activities such as attending school, when they feel bad about their looks.A teenage girl's self - esteem is more strongly related to how she views her own body shape and body weight, than how much she actually appears and looks."));
-        }
-         else if (position.equals("Writing")){
+        } else if (position.equals("Teenagers")) {
+            list.add(new FactData("A man sometimes extends his waist towards a girl if he's attracted to her."));
+            list.add(new FactData("About 20% of teens are more likely to experience depression before they join college."));
+            list.add(new FactData("18 to 33-year olds are the most stressed out people on earth."));
+            list.add(new FactData("Teenagers even who have to get up early in the morning stay awake till late nights and often face a lack of sleep or the willingness to sleep."));
+            list.add(new FactData("Teenagers will always try to be more of an adult than a child: Sure, they are in the middle of that phase where it's neither here nor there, but they try their level best to show that they are mature enough to handle everything and anything."));
+            list.add(new FactData("90% of the time when someone says they have to ask you a question, you recall all the bad things you have done recently."));
+            list.add(new FactData("Teens mind doesn't build to do hard work, they want success easily and rapidly so that they can do anything."));
+            list.add(new FactData("Teenagers are dramatic, irrational and scream for seemingly no reason. They do stupid things. And they have a deep need for both greater independence and tender loving care."));
+            list.add(new FactData("Teen girls that have a negative view of themselves are 4 times more likely to take part in activities with boys that they were ended up regretting later."));
+            list.add(new FactData("Teenagers have less self - control. They are extremely impulsive."));
+            list.add(new FactData("Teenagers are not good at reading emotions as adults or even children."));
+            list.add(new FactData("7 in 10 girls believe that they are not good enough or don't measure up in some way, including their looks, performance in school and relationships with friends and family members."));
+            list.add(new FactData("Brain maturation is again influenced by environmental factors increasing their proneness to drug abuse, unprotected sex and violence."));
+            list.add(new FactData("Due to the increase in brain matter, the teen brain becomes more interconnected and gains processing power."));
+            list.add(new FactData("Teenagers can find it really tough to control their emotions: Honestly, it’s not even their fault that they have to go through this, because their emotions are everywhere thanks to our dear friends, hormones."));
+            list.add(new FactData("Teenagers find it easy to trust people: And the downside of this is that they eventually get hurt and not be able to build trust as easily as before."));
+            list.add(new FactData("They think more about themselves and consider themselves as unique. Hence, often ends up thinking nobody could understand them or think like they do."));
+            list.add(new FactData("Over 70% of Teenagers age 15 to 17 avoid normal daily activities, such as attending school, when they feel bad about their looks."));
+            list.add(new FactData("There is an 84% chance that if you’re 16 or older, you’ve met the person you’ll marry."));
+            list.add(new FactData("If a guy stands with his legs apart while talking to a girl, it means he likes her."));
+            list.add(new FactData("Many teens who sleep less than 8-9 hours suffer from irritability, mood swings and even depression."));
+            list.add(new FactData("Teenagers who do not have positive peer relations with family or friends are at a higher risk of developing substance abuse and depression."));
+            list.add(new FactData("The ability to delay gratification or not starts young. "));
+            list.add(new FactData("Life becomes more meaningful when you realize the simple fact that you'll never get the same moment twice."));
+            list.add(new FactData("If you’re in a really heated and angry situation, try to avoid the word 'you'.The word “you” is not going to help you in any manner."));
+            list.add(new FactData("Teenagers find it easy to trust people: And the downside of this is that they eventually get hurt and are not able to build trust as easily as before. But i think its a necessary evil to be let down once, and not make the same mistakes again."));
+            list.add(new FactData("Puberty is the beginning of major changes in the limbic system in teenage life, Psychologist said, referring to the part of the brain that not only helps regulate heart rate and blood sugar levels, but is also critical to the formation of memories and emotions."));
+            list.add(new FactData("The generation that invented the internet, the smartphone, and the iPad all played outside as children."));
+            list.add(new FactData("7 in 10 girls believe that they are not good enough or don’t measure up in some way, including their looks, performance in school and relationships with friends and family members."));
+            list.add(new FactData("Teenagers are ore more likely to take more risks than any other age group."));
+            list.add(new FactData("Among high school students, approximately 44% girls and 14% boys are attempting to lose weight according to survey."));
+            list.add(new FactData("Watching scary movies has lasting effects on children and teens, which may affect them well into adulthood"));
+            list.add(new FactData("Teenagers are not that good at reading emotions as adults or even children."));
+            list.add(new FactData("A study showed that the percentage of teen girls who feel good about themselves is around 29% compared to boys with a percent of 46%."));
+            list.add(new FactData("75% of teenagers with low self-esteem reported engaging in negative activities like cutting, bullying, smoking, drinking, or disordered eating. This compares to 25% of girls with high self-esteem according to survey."));
+            list.add(new FactData("Teenagers have less self-control. They are extremely impulsive."));
+            list.add(new FactData("A person can share boring experiences with just about anybody. Coffee date, been there. Movie and a dinner, done that. Skip all the conventional dates for more exciting experiences together such as skydiving or bungee jumping to create much more special memories."));
+            list.add(new FactData("Girls who have more 'guy friends' than 'girl friends' go through less depression and anxiety."));
+            list.add(new FactData("However, summer is the season that produces the most manic states. Nonetheless, this point and the former appear to be less evident depending on the latitude where people are located. So, the closer people are to the equator, the less they suffer from these types of problems."));
+            list.add(new FactData("Studies have found that being a “bad boy” is no longer perceived as “cool.”"));
+            list.add(new FactData("Positive text messages from people you care about can have a positive influence on your body and improve your mood."));
+            list.add(new FactData("Admit when you're wrong and shut up when you're right. This is the best way to drastically improve the quality of your relationships."));
+            list.add(new FactData("When a girl tells you about her problems, it does not mean that she is complaining. It means she trusts you!"));
+            list.add(new FactData("Those who use ‘Analog clock’ are more aware of the ‘time spent’ & the ‘time left’ than those who use Digital clock."));
+            list.add(new FactData("People who play video games often are much more likely to have lucid dreams than non-gamers"));
+            list.add(new FactData("Online dating and online shopping use the same psychological principle."));
+            list.add(new FactData("A girl's favourite song will tell you more about her feelings than her lips ever will."));
+            list.add(new FactData("Unexpected phone calls and texts tend to be best and can improve a person’s mood and state of mind. Guess who might make your day today."));
+            list.add(new FactData("People who are risk-takers in their youth also tend to take relatively more risks than their peers as they age, research shows."));
+            list.add(new FactData("The top wish among many teen girls is for their parents to communicate better with them. This includes frequent and more open conversations."));
+            list.add(new FactData("recent studies suggest that your teen is less lonely than you were as a kid."));
+            list.add(new FactData("Teens prefer digital world engagement more than real world engagement and dominate social platforms."));
+            list.add(new FactData("Teenagers are more likely to take more risks than any other age group."));
+            list.add(new FactData("More than 40% of boys in middle school and high school regularly exercise with the goal of increasing muscle mass."));
+            list.add(new FactData("About 20% of teens will experience depression before they reach adulthood."));
+            list.add(new FactData("Over 70% of girls age 15 to 17 avoid normal daily activities such as attending school, when they feel bad about their looks.A teenage girl's self - esteem is more strongly related to how she views her own body shape and body weight, than how much she actually appears and looks."));
+        } else if (position.equals("Writing")) {
             list.add(new FactData("94 percent of professors at a large university believe that they are better than the average professor."));
             list.add(new FactData("If your words are totally jammed together, a writing analysis will suggest that you might be intrusive or have the tendency to crowd people."));
             list.add(new FactData("If you want to increase your chances of making a good impression in a meeting, sit toward the middle of the table."));
@@ -2119,8 +2077,7 @@ public class All_facts_together extends AppCompatActivity {
             list.add(new FactData("Those people who tend to look forward in life usually put their signature to the right. If your signature is in the center of the page that means you lack the attention of other people or maybe you just want to emphasize your importance."));
             list.add(new FactData("Research shows that writing about achieving future goals and dreams can make people happier and healthier. So, write your goals first before sharing with others. Psychologically you'll get better focus for it."));
             list.add(new FactData("Graphology/Handwriting analysis is used in many fields today. Some of the examples are: Personality development, criminal tendencies identification in police department, early stage issues in child psychology development, identify psychological disorders in early stages etc."));
-        }
-         else if (position.equals("Random")){
+        } else if (position.equals("Random")) {
             list.add(new FactData("The colder the room you sleep in, the better the chances are that you’ll have a bad dream."));
             list.add(new FactData("The day after tomorrow is called 'Over morrow'."));
             list.add(new FactData("If you want to feel more confident, adopt a power stance."));
@@ -2172,7 +2129,7 @@ public class All_facts_together extends AppCompatActivity {
             list.add(new FactData("Only 2% of the earth’s population naturally has green eyes."));
             list.add(new FactData("Play with dark and light colours. Dark colours may make a room feel smaller—which can be a positive if you’re aiming to create a cozy and intimate space—while light colours tend to open a room up, making it feel larger."));
             list.add(new FactData("Shades of blue are supposed to be calming, while a colour like bright orange encourages happiness and creativity."));
-         }
+        }
         saveData();
         DetailAdapterForAllFacts detailAdapterForAllFacts1 = new DetailAdapterForAllFacts(this, list);
         this.detailAdapterForAllFacts = detailAdapterForAllFacts1;
@@ -2186,19 +2143,20 @@ public class All_facts_together extends AppCompatActivity {
     }
 
     public boolean onOptionsItemSelected(MenuItem paramMenuItem) {
-                    if (paramMenuItem.getItemId() == R.id.sharing) {
-                        Intent intent = new Intent("android.intent.action.SEND");
-                intent.setType("text/plain");
-                intent.putExtra("android.intent.extra.TEXT", "Download PsychologyApp:\nPsychology Facts app provides mind-blowing psychology facts and life hacks that everyone should know \nDownload Now: \nhttps://play.google.com/store/apps/details?id=com.deeppsy.psychologyfacts");
-                //intent.putExtra("android.intent.extra.SUBJECT", "EarthquakeApp");
-                startActivity(Intent.createChooser(intent, "Share Using"));
-            }
-            if (paramMenuItem.getItemId()==android.R.id.home){
-                finish();
-                onBackPressed();
-            }
+        if (paramMenuItem.getItemId() == R.id.sharing) {
+            Intent intent = new Intent("android.intent.action.SEND");
+            intent.setType("text/plain");
+            intent.putExtra("android.intent.extra.TEXT", "Download PsychologyApp:\nPsychology Facts app provides mind-blowing psychology facts and life hacks that everyone should know \nDownload Now: \nhttps://play.google.com/store/apps/details?id=com.deeppsy.psychologyfacts");
+            //intent.putExtra("android.intent.extra.SUBJECT", "EarthquakeApp");
+            startActivity(Intent.createChooser(intent, "Share Using"));
+        }
+        if (paramMenuItem.getItemId() == android.R.id.home) {
+            finish();
+            onBackPressed();
+        }
         return super.onOptionsItemSelected(paramMenuItem);
     }
+
     protected void onResume() {
         this.detailAdapterForAllFacts.notifyDataSetChanged();
         super.onResume();

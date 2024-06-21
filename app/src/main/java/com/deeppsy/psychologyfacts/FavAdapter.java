@@ -13,8 +13,11 @@ import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.gson.Gson;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -25,19 +28,22 @@ public class FavAdapter extends RecyclerView.Adapter<FavAdapter.FavViewHolder> i
 
     static ArrayList<FavData> mFavData;
 
-    Context mContext;
+    static {
+    }
 
-    private Filter mFavListFilter = new Filter() {
+    Context mContext;
+    private final ArrayList<FavData> mFavDataFull;
+    private final Filter mFavListFilter = new Filter() {
         protected FilterResults performFiltering(CharSequence mCharSequence) {
             ArrayList<FavData> arrayList = new ArrayList<FavData>();
             if (mCharSequence == null || mCharSequence.length() == 0) {
                 arrayList.addAll(FavAdapter.this.mFavDataFull);
-            }else{
+            } else {
                 String string = mCharSequence.toString().toLowerCase().trim();
-                Iterator<FavData> fuck=FavAdapter.this.mFavDataFull.iterator();
-                while (fuck.hasNext()){
+                Iterator<FavData> fuck = FavAdapter.this.mFavDataFull.iterator();
+                while (fuck.hasNext()) {
                     FavData favData = fuck.next();
-                    if (favData.getTitle().toLowerCase().contains(string)){
+                    if (favData.getTitle().toLowerCase().contains(string)) {
                         arrayList.add(favData);
                     }
                 }
@@ -50,18 +56,17 @@ public class FavAdapter extends RecyclerView.Adapter<FavAdapter.FavViewHolder> i
 
         protected void publishResults(CharSequence param1CharSequence, FilterResults param1FilterResults) {
             FavAdapter.mFavData.clear();
-            FavAdapter.mFavData.addAll((ArrayList)param1FilterResults.values);
+            FavAdapter.mFavData.addAll((ArrayList) param1FilterResults.values);
             FavAdapter.this.notifyDataSetChanged();
         }
     };
-    private ArrayList<FavData> mFavDataFull;
-    static  {
-    }
+
     public FavAdapter(Context paramContext, ArrayList<FavData> paramArrayList) {
         this.mContext = paramContext;
         mFavData = paramArrayList;
         this.mFavDataFull = new ArrayList<>(paramArrayList);
     }
+
     private void saveData() {
         SharedPreferences.Editor editor = this.mContext.getSharedPreferences(SHARED_FAV, 0).edit();
         String str = (new Gson()).toJson(mFavData);
@@ -69,13 +74,17 @@ public class FavAdapter extends RecyclerView.Adapter<FavAdapter.FavViewHolder> i
         editor.apply();
     }
 
-    public Filter getFilter() { return this.mFavListFilter; }
+    public Filter getFilter() {
+        return this.mFavListFilter;
+    }
 
-    public int getItemCount() { return mFavData.size(); }
+    public int getItemCount() {
+        return mFavData.size();
+    }
 
     public void onBindViewHolder(FavViewHolder paramFavViewHolder, final int position) {
-        paramFavViewHolder.textView.setText(((FavData) mFavData.get(position)).getTitle());
-        paramFavViewHolder.factTitleTextView.setText(((FavData) mFavData.get(position)).getFactTitle());
+        paramFavViewHolder.textView.setText(mFavData.get(position).getTitle());
+        paramFavViewHolder.factTitleTextView.setText(mFavData.get(position).getFactTitle());
         paramFavViewHolder.savImage.setBackgroundResource(R.drawable.ic_bookmark_yellow_24dp);
         paramFavViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             public void onClick(View param1View) {
@@ -89,21 +98,20 @@ public class FavAdapter extends RecyclerView.Adapter<FavAdapter.FavViewHolder> i
                 Toast.makeText(FavAdapter.this.mContext, "Sharing...", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent("android.intent.action.SEND");
                 intent.setType("text/plain");
-                StringBuilder stringBuilder = new StringBuilder();
-                stringBuilder.append(((FavData)FavAdapter.mFavData.get(position)).getTitle());
-                stringBuilder.append("\n\nFor More Download the PsychologyFacts App now:");
-                stringBuilder.append("\n");
-                stringBuilder.append("https://play.google.com/store/apps/details?id=com.deeppsy.psychologyfacts");
-                intent.putExtra("android.intent.extra.TEXT", stringBuilder.toString());
+                String stringBuilder = FavAdapter.mFavData.get(position).getTitle() +
+                        "\n\nFor More Download the PsychologyFacts App now:" +
+                        "\n" +
+                        "https://play.google.com/store/apps/details?id=com.deeppsy.psychologyfacts";
+                intent.putExtra("android.intent.extra.TEXT", stringBuilder);
                 intent.putExtra("android.intent.extra.SUBJECT", "hello");
                 FavAdapter.this.mContext.startActivity(intent);
             }
         });
         paramFavViewHolder.copyImage.setOnClickListener(new View.OnClickListener() {
             public void onClick(View param1View) {
-                ((ClipboardManager)FavAdapter.this.mContext.getSystemService(Context.CLIPBOARD_SERVICE))
+                ((ClipboardManager) FavAdapter.this.mContext.getSystemService(Context.CLIPBOARD_SERVICE))
                         .setPrimaryClip(ClipData.newPlainText("CopyText",
-                        ((FavData)FavAdapter.mFavData.get(position)).getTitle()));
+                                FavAdapter.mFavData.get(position).getTitle()));
                 Toast.makeText(FavAdapter.this.mContext, "Copied to clipboard.", Toast.LENGTH_LONG).show();
             }
         });
@@ -117,7 +125,9 @@ public class FavAdapter extends RecyclerView.Adapter<FavAdapter.FavViewHolder> i
         });
     }
 
-    public FavViewHolder onCreateViewHolder(ViewGroup paramViewGroup, int paramInt) { return new FavViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.details, paramViewGroup, false)); }
+    public FavViewHolder onCreateViewHolder(ViewGroup paramViewGroup, int paramInt) {
+        return new FavViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.details, paramViewGroup, false));
+    }
 
     class FavViewHolder extends RecyclerView.ViewHolder {
         ImageView copyImage;
@@ -132,11 +142,11 @@ public class FavAdapter extends RecyclerView.Adapter<FavAdapter.FavViewHolder> i
 
         public FavViewHolder(View param1View) {
             super(param1View);
-            this.textView = (TextView)param1View.findViewById(R.id.detail_text);
-            this.factTitleTextView = (TextView)param1View.findViewById(R.id.bottom_text_details);
-            this.savImage = (ImageView)param1View.findViewById(R.id.bookMark);
-            this.shareImage = (ImageView)param1View.findViewById(R.id.sharetext);
-            this.copyImage = (ImageView)param1View.findViewById(R.id.copybord);
+            this.textView = param1View.findViewById(R.id.detail_text);
+            this.factTitleTextView = param1View.findViewById(R.id.bottom_text_details);
+            this.savImage = param1View.findViewById(R.id.bookMark);
+            this.shareImage = param1View.findViewById(R.id.sharetext);
+            this.copyImage = param1View.findViewById(R.id.copybord);
         }
     }
 }

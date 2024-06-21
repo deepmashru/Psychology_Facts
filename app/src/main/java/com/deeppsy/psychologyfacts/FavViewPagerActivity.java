@@ -5,24 +5,26 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
+
 import java.util.Objects;
 
 public class FavViewPagerActivity extends AppCompatActivity {
     protected void onCreate(Bundle paramBundle) {
         super.onCreate(paramBundle);
         setContentView(R.layout.activity_fav_view_pager);
-        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setElevation(0.0F);
         toolbar.setBackgroundColor(getColor(R.color.viewpagerToolBarColor));
         toolbar.setTitleTextColor(getColor(R.color.viewpagerToolBarColor));
         setSupportActionBar(toolbar);
-        ((ActionBar)Objects.requireNonNull(getSupportActionBar())).setDisplayShowHomeEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        ViewPager viewPager = (ViewPager)findViewById(R.id.viewpager_fav);
+        ViewPager viewPager = findViewById(R.id.viewpager_fav);
         int i = getIntent().getIntExtra("position", 0);
         viewPager.setAdapter(new FavViewPagerAdapter(this, SaveFragment.favData));
         viewPager.setCurrentItem(i);

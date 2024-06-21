@@ -1,4 +1,5 @@
 package com.deeppsy.psychologyfacts;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -8,16 +9,15 @@ import android.os.Handler;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 public class MainActivity extends AppCompatActivity {
-    private static int SPLASH_TIME_OUT = 1000;
-
-    public static String SWITCH3 = "switch3";
-
     private static final String job_tag = "Notification";
+    public static String SWITCH3 = "switch3";
+    private static final int SPLASH_TIME_OUT = 1000;
 
     @RequiresApi(api = Build.VERSION_CODES.P)
     protected void onCreate(Bundle paramBundle) {
@@ -26,7 +26,8 @@ public class MainActivity extends AppCompatActivity {
         /*AudienceNetworkAds.initialize(this);*/
         All_facts_together.b = 1;
         FirebaseMessaging.getInstance().subscribeToTopic("general").addOnCompleteListener(new OnCompleteListener<Void>() {
-            public void onComplete(Task<Void> param1Task) {}
+            public void onComplete(Task<Void> param1Task) {
+            }
         });
         boolean bool = getSharedPreferences("setNightModeSharedPref", 0).getBoolean(SWITCH3, true);
 
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
                 MainActivity.this.startActivity(intent);
                 MainActivity.this.finish();
             }
-        },SPLASH_TIME_OUT);
+        }, SPLASH_TIME_OUT);
         findViewById(R.id.myLayout).setSystemUiVisibility(4102);
     }
 

@@ -13,24 +13,41 @@ public class FactData {
         this.title = title;
         this.imageRef = imageRef;
     }
-    public FactData(String title){
+
+    public FactData(String title) {
         this.title = title;
     }
 
-    public String getId() { return this.id; }
+    public String getId() {
+        return this.id;
+    }
 
-    public int getImageRef() { return this.imageRef; }
+    public void setId(String string) {
+        this.id = string;
+    }
 
-    public boolean getState() { return this.state; }
+    public int getImageRef() {
+        return this.imageRef;
+    }
 
-    public String getTitle() { return this.title; }
+    public void setImageRef(int paramInt) {
+        this.imageRef = paramInt;
+    }
 
-    public void setId(String string) { this.id = string; }
+    public boolean getState() {
+        return this.state;
+    }
 
-    public void setImageRef(int paramInt) { this.imageRef = paramInt; }
+    public void setState(boolean paramBoolean) {
+        this.state = paramBoolean;
+    }
 
-    public void setState(boolean paramBoolean) { this.state = paramBoolean; }
+    public String getTitle() {
+        return this.title;
+    }
 
-    public void setTitle(String title) { this.title = title; }
+    public void setTitle(String title) {
+        this.title = title;
+    }
 }
 

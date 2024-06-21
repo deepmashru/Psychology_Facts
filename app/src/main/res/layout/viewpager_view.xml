@@ -1,91 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    android:layout_gravity="center"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="600.0dip"
-    app:cardCornerRadius="15.0dip"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
+    android:layout_gravity="center"
+    app:cardCornerRadius="15.0dip">
+
     <RelativeLayout
-        android:background="@color/detailActColor"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        >
+        android:background="@color/detailActColor">
+
         <TextView
-            android:textSize="21.0sp"
-            android:textStyle="bold"
             android:id="@+id/psychologyText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20.0dip"
-            android:text="@string/psychology_facts"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="20.0dip"
             android:fontFamily="sans-serif-light"
+            android:text="@string/psychology_facts"
             android:textColor="@color/detailTextColor"
-            />
-        <TextView
             android:textSize="21.0sp"
-            android:textStyle="bold"
-            android:textColor="@color/detailTextColor"
-            android:gravity="center"
+            android:textStyle="bold" />
+
+        <TextView
             android:id="@+id/viewpagertext"
-            android:padding="16.0dip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/the_fact_should_be_shown_here"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:lineSpacingExtra="3.0dip" />
+            android:gravity="center"
+            android:lineSpacingExtra="3.0dip"
+            android:padding="16.0dip"
+            android:text="@string/the_fact_should_be_shown_here"
+            android:textColor="@color/detailTextColor"
+            android:textSize="21.0sp"
+            android:textStyle="bold" />
+
         <RelativeLayout
-            android:padding="5.0dip"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            >
+            android:padding="5.0dip">
+
             <ImageView
                 android:id="@id/account_name"
                 android:layout_width="24.0dip"
                 android:layout_height="24.0dip"
-                android:src="@drawable/ic_account_circle_white_24dp"
-                android:layout_centerInParent="true"
                 android:layout_alignParentStart="true"
-                />
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_account_circle_white_24dp" />
+
             <TextView
-                android:textColor="@color/detailTextColor"
                 android:id="@+id/bottom_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Anger Facts"
                 android:layout_centerInParent="true"
                 android:layout_marginStart="10.0dip"
                 android:layout_toEndOf="@id/account_name"
-                />
+                android:text="Anger Facts"
+                android:textColor="@color/detailTextColor" />
+
             <ImageView
                 android:id="@id/copy_horizontal"
                 android:layout_width="24.0dip"
                 android:layout_height="24.0dip"
-                android:src="@drawable/ic_content_copy_white_24dp"
+                android:layout_alignParentEnd="true"
                 android:layout_centerInParent="true"
                 android:layout_marginEnd="5.0dip"
-                android:layout_alignParentEnd="true"
-                />
+                android:src="@drawable/ic_content_copy_white_24dp" />
+
             <ImageView
                 android:id="@+id/share_horizontal"
                 android:layout_width="24.0dip"
                 android:layout_height="24.0dip"
-                android:src="@drawable/ic_share_white_24dp"
                 android:layout_centerInParent="true"
                 android:layout_marginEnd="20.0dip"
                 android:layout_toStartOf="@+id/copy_horizontal"
-                />
+                android:src="@drawable/ic_share_white_24dp" />
+
             <ImageView
                 android:id="@+id/save"
                 android:layout_width="24.0dip"
                 android:layout_height="24.0dip"
                 android:layout_marginEnd="20.0dip"
-                android:layout_toStartOf="@+id/share_horizontal"
-                />
+                android:layout_toStartOf="@+id/share_horizontal" />
         </RelativeLayout>
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

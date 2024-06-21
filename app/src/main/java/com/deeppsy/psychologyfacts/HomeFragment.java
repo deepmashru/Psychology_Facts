@@ -1,24 +1,27 @@
 package com.deeppsy.psychologyfacts;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.ArrayList;
 
 public class HomeFragment extends Fragment {
     static FactAdapter factAdapter;
 
-    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle){
-        View view = layoutInflater.inflate(R.layout.home_fragment,viewGroup,false);
-        RecyclerView recyclerView = (RecyclerView)view.findViewById(R.id.rv1);
+    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        View view = layoutInflater.inflate(R.layout.home_fragment, viewGroup, false);
+        RecyclerView recyclerView = view.findViewById(R.id.rv1);
         ArrayList<FactData> arrayList = new ArrayList<>();
         arrayList.add(new FactData("Anger", R.drawable.anger));
         arrayList.add(new FactData("Animals", R.drawable.animals));
         arrayList.add(new FactData("Attraction", R.drawable.attraction));
-        arrayList.add(new FactData("Biological Facts",R.drawable.biology ));
+        arrayList.add(new FactData("Biological Facts", R.drawable.biology));
         arrayList.add(new FactData("Body Language", R.drawable.bodylanguage));
         arrayList.add(new FactData("Children", R.drawable.children));
         arrayList.add(new FactData("Colour", R.drawable.color));

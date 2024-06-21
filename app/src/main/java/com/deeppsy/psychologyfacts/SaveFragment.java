@@ -7,11 +7,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
+
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+
 import java.util.ArrayList;
 
 public class SaveFragment extends Fragment {
@@ -23,7 +26,7 @@ public class SaveFragment extends Fragment {
 
     private void loadData() {
         SharedPreferences sharedPreferences = getContext().getSharedPreferences(DetailAdapterForAllFacts.SHARED_FAV, 0);
-        ArrayList arrayList = (ArrayList)(new Gson()).fromJson(sharedPreferences.getString(DetailAdapterForAllFacts.FAV_DATA, null), (new TypeToken<ArrayList<FavData>>() {
+        ArrayList arrayList = (new Gson()).fromJson(sharedPreferences.getString(DetailAdapterForAllFacts.FAV_DATA, null), (new TypeToken<ArrayList<FavData>>() {
 
         }).getType());
         favData = arrayList;
@@ -34,13 +37,13 @@ public class SaveFragment extends Fragment {
 
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View view = layoutInflater.inflate(R.layout.activity_save_fragment, viewGroup, false);
-        RecyclerView recyclerView = (RecyclerView)view.findViewById(R.id.rv2);
+        RecyclerView recyclerView = view.findViewById(R.id.rv2);
         loadData();
         FavAdapter favAdapter1 = new FavAdapter(getContext(), favData);
         favAdapter = favAdapter1;
         recyclerView.setAdapter(favAdapter1);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        this.emptyRel = (RelativeLayout)view.findViewById(R.id.empty_view);
+        this.emptyRel = view.findViewById(R.id.empty_view);
         if (favData.isEmpty()) {
             this.emptyRel.setVisibility(View.VISIBLE);
             return view;

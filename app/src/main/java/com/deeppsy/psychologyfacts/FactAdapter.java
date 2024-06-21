@@ -18,19 +18,19 @@ import java.util.Iterator;
 
 
 public class FactAdapter extends RecyclerView.Adapter<FactAdapter.FactsViewHolder> implements Filterable {
-    private ArrayList<FactData> mAndroidNews;
-
-    private Filter mAndroidNewsFilter = new Filter() {
+    private final ArrayList<FactData> mAndroidNews;
+    private final ArrayList<FactData> mAndroidNewsFull;
+    private final Filter mAndroidNewsFilter = new Filter() {
         protected FilterResults performFiltering(CharSequence mCharSequence) {
             ArrayList<FactData> arrayList = new ArrayList<FactData>();
             if (mCharSequence == null || mCharSequence.length() == 0) {
                 arrayList.addAll(FactAdapter.this.mAndroidNewsFull);
-            }else{
+            } else {
                 String string = mCharSequence.toString().toLowerCase().trim();
-                Iterator<FactData> fuck=FactAdapter.this.mAndroidNewsFull.iterator();
-                while (fuck.hasNext()){
+                Iterator<FactData> fuck = FactAdapter.this.mAndroidNewsFull.iterator();
+                while (fuck.hasNext()) {
                     FactData factData = fuck.next();
-                    if (factData.getTitle().toLowerCase().contains(string)){
+                    if (factData.getTitle().toLowerCase().contains(string)) {
                         arrayList.add(factData);
                     }
                 }
@@ -42,14 +42,11 @@ public class FactAdapter extends RecyclerView.Adapter<FactAdapter.FactsViewHolde
 
         protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
             FactAdapter.this.mAndroidNews.clear();
-            FactAdapter.this.mAndroidNews.addAll((ArrayList)filterResults.values);
+            FactAdapter.this.mAndroidNews.addAll((ArrayList) filterResults.values);
             FactAdapter.this.notifyDataSetChanged();
         }
     };
-
-    private ArrayList<FactData> mAndroidNewsFull;
-
-    private Context mContext;
+    private final Context mContext;
 
     public FactAdapter(Context paramContext, ArrayList<FactData> paramArrayList) {
         this.mContext = paramContext;
@@ -57,16 +54,20 @@ public class FactAdapter extends RecyclerView.Adapter<FactAdapter.FactsViewHolde
         this.mAndroidNewsFull = new ArrayList<>(paramArrayList);
     }
 
-    public Filter getFilter() { return this.mAndroidNewsFilter; }
+    public Filter getFilter() {
+        return this.mAndroidNewsFilter;
+    }
 
-    public int getItemCount() { return this.mAndroidNews.size(); }
+    public int getItemCount() {
+        return this.mAndroidNews.size();
+    }
 
     public void onBindViewHolder(@NonNull FactsViewHolder holder, int paramInt) {
-        final FactData factData = (FactData)this.mAndroidNews.get(paramInt);
-        if (factData.getTitle()!=null){
-            if (factData.getTitle().equals("Social Media Life") || factData.getTitle().equals("Friendship")||factData.getTitle().equals("Introverts")||factData.getTitle().equals("OCD")){
+        final FactData factData = this.mAndroidNews.get(paramInt);
+        if (factData.getTitle() != null) {
+            if (factData.getTitle().equals("Social Media Life") || factData.getTitle().equals("Friendship") || factData.getTitle().equals("Introverts") || factData.getTitle().equals("OCD")) {
                 holder.textView.setText(" ");
-            }else{
+            } else {
                 holder.textView.setText(factData.getTitle());
             }
 
@@ -97,9 +98,9 @@ public class FactAdapter extends RecyclerView.Adapter<FactAdapter.FactsViewHolde
         public FactsViewHolder(View param1View) {
             super(param1View);
 
-            this.textView = (TextView)param1View.findViewById(R.id.cardTitle);
+            this.textView = param1View.findViewById(R.id.cardTitle);
 
-            this.imageView = (ImageView)param1View.findViewById(R.id.cardImage);
+            this.imageView = param1View.findViewById(R.id.cardImage);
         }
     }
 }

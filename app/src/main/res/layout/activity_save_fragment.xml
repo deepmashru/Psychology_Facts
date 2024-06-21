@@ -1,22 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-    <androidx.recyclerview.widget.RecyclerView android:id="@+id/rv2" android:paddingTop="20.0dip" android:paddingBottom="20.0dip" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="15.0dip" android:paddingEnd="15.0dip" />
-    <RelativeLayout android:id="@+id/empty_view" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
-        <ImageView android:id="@+id/empty_shelter_image"
-            android:layout_width="100.0dip" android:layout_height="100.0dip" android:src="@drawable/ic_idea" android:layout_centerHorizontal="true" android:contentDescription="@string/lampimage" />
-        <TextView android:textAppearance="?android:textAppearanceMedium"
-            android:textColor="@color/maincolor"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:paddingStart="15.0dip"
+        android:paddingTop="20.0dip"
+        android:paddingEnd="15.0dip"
+        android:paddingBottom="20.0dip" />
+
+    <RelativeLayout
+        android:id="@+id/empty_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/empty_shelter_image"
+            android:layout_width="100.0dip"
+            android:layout_height="100.0dip"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/lampimage"
+            android:src="@drawable/ic_idea" />
+
+        <TextView
             android:id="@+id/empty_title_text"
-            android:paddingTop="16.0dip"
             android:layout_width="wrap_content"
-            android:textSize="14sp"
             android:layout_height="wrap_content"
-            android:text="@string/it_s_a_bit_lonely_here"
             android:layout_below="@id/empty_shelter_image"
             android:layout_centerHorizontal="true"
             android:fontFamily="sans-serif-medium"
-            />
-        <TextView android:textAppearance="?android:textAppearanceSmall" android:textColor="#ffa2aab0" android:id="@+id/empty_subtitle_text" android:paddingTop="8.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/get_started_by_saving_facts" android:layout_below="@id/empty_title_text" android:layout_centerHorizontal="true" android:fontFamily="sans-serif" />
+            android:paddingTop="16.0dip"
+            android:text="@string/it_s_a_bit_lonely_here"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="@color/maincolor"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/empty_subtitle_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/empty_title_text"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="sans-serif"
+            android:paddingTop="8.0dip"
+            android:text="@string/get_started_by_saving_facts"
+            android:textAppearance="?android:textAppearanceSmall"
+            android:textColor="#ffa2aab0" />
     </RelativeLayout>
 </RelativeLayout>

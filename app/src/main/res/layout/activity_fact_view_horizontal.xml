@@ -1,23 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    android:background="@color/viewpagerToolBarColor"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:backgroundTint="@color/viewfull"
-  xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
+    android:background="@color/viewpagerToolBarColor"
+    android:backgroundTint="@color/viewfull">
+
     <include
         android:id="@+id/toolbar"
         layout="@layout/viewpager_toolbar"
 
         />
+
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewpager_view"
-        android:paddingTop="50.0dip"
-        android:paddingBottom="120.0dip"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/toolbar"
-        />
+        android:paddingTop="50.0dip"
+        android:paddingBottom="120.0dip" />
 </RelativeLayout>
