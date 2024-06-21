@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
             public void onComplete(Task<Void> param1Task) {
             }
         });
-        boolean bool = getSharedPreferences("setNightModeSharedPref", 0).getBoolean(SWITCH3, true);
+
 
         (new Handler()).postDelayed(new Runnable() {
             public void run() {
