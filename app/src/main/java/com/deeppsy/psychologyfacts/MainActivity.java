@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle paramBundle) {
         super.onCreate(paramBundle);
         setContentView(R.layout.activity_main);
-        /*AudienceNetworkAds.initialize(this);*/
+
         All_facts_together.b = 1;
         FirebaseMessaging.getInstance().subscribeToTopic("general").addOnCompleteListener(new OnCompleteListener<Void>() {
             public void onComplete(Task<Void> param1Task) {
